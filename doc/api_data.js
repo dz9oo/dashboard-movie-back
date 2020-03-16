@@ -29,6 +29,397 @@ define({ "api": [
   },
   {
     "type": "post",
+    "url": "/actor",
+    "title": "Add one Actor",
+    "name": "addActor",
+    "group": "Actor",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "firstname",
+            "description": "<p>Firstname of the Actor.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "lastname",
+            "description": "<p>Lastname of the Actor.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Date",
+            "optional": false,
+            "field": "birthday",
+            "description": "<p>Birthday of the Actor.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>Gender of the Actor.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "nationality",
+            "description": "<p>Nationality of the Actor.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n       \"firstname\": \"John\",\n       \"lastname\": \"Doe\",\n       \"birthday\": \"1980-02-10T22:15:34.000Z\",\n       \"gender\": \"Male\",\n       \"nationality\": \"British\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>id of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "firstname",
+            "description": "<p>Firstname of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "lastname",
+            "description": "<p>Lastname of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "birthday",
+            "description": "<p>Birthday of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>Gender of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "nationality",
+            "description": "<p>Nationality of the Actor.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[\n   {\n       \"id\": 1,\n       \"firstname\": \"John\",\n       \"lastname\": \"Doe\",\n       \"birthday\": \"1980-02-10T22:15:34.000Z\",\n       \"gender\": \"Male\",\n       \"nationality\": \"British\",\n       \"createdAt\": \"2020-02-10T22:15:34.000Z\",\n       \"updatedAt\": \"2020-02-10T22:15:34.000Z\"\n   }\n ]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./controller/actor.controller.js",
+    "groupTitle": "Actor"
+  },
+  {
+    "type": "delete",
+    "url": "/actor/:id",
+    "title": "Delete one Actor",
+    "name": "deleteActor",
+    "group": "Actor",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id of the Actor.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Actor deleted.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  message: \"Actor deleted\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./controller/actor.controller.js",
+    "groupTitle": "Actor"
+  },
+  {
+    "type": "put",
+    "url": "/actor/:id",
+    "title": "Edit one Actor",
+    "name": "editActor",
+    "group": "Actor",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>id of the Actor.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "firstname",
+            "description": "<p>Firstname of the Actor.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "lastname",
+            "description": "<p>Lastname of the Actor.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Date",
+            "optional": false,
+            "field": "birthday",
+            "description": "<p>Birthday of the Actor.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>Gender of the Actor.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "nationality",
+            "description": "<p>Nationality of the Actor.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n       \"firstname\": \"John\",\n       \"lastname\": \"Doe\",\n       \"birthday\": \"1980-02-10T22:15:34.000Z\",\n       \"gender\": \"Male\",\n       \"nationality\": \"British\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>id of the Genre.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Name of the Genre.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n       \"id\": 1,\n       \"firstname\": \"John\",\n       \"lastname\": \"Doe\",\n       \"birthday\": \"1980-02-10T22:15:34.000Z\",\n       \"gender\": \"Male\",\n       \"nationality\": \"British\",\n       \"createdAt\": \"2020-02-10T22:15:34.000Z\",\n       \"updatedAt\": \"2020-02-10T22:15:34.000Z\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./controller/actor.controller.js",
+    "groupTitle": "Actor"
+  },
+  {
+    "type": "get",
+    "url": "/actor",
+    "title": "Show all Actors",
+    "name": "getActor",
+    "group": "Actor",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>id of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "firstname",
+            "description": "<p>Firstname of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "lastname",
+            "description": "<p>Lastname of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "birthday",
+            "description": "<p>Birthday of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>Gender of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "nationality",
+            "description": "<p>Nationality of the Actor.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[\n   {\n       \"id\": 1,\n       \"firstname\": \"John\",\n       \"lastname\": \"Doe\",\n       \"birthday\": \"1980-02-10T22:15:34.000Z\",\n       \"gender\": \"Male\",\n       \"nationality\": \"British\",\n       \"createdAt\": \"2020-02-10T22:15:34.000Z\",\n       \"updatedAt\": \"2020-02-10T22:15:34.000Z\"\n   }\n ]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./controller/actor.controller.js",
+    "groupTitle": "Actor"
+  },
+  {
+    "type": "get",
+    "url": "/actor/:id",
+    "title": "Show detail of one Actor",
+    "name": "getActorDetail",
+    "group": "Actor",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>of the Actor</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>id of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "firstname",
+            "description": "<p>Firstname of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "lastname",
+            "description": "<p>Lastname of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "birthday",
+            "description": "<p>Birthday of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>Gender of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "nationality",
+            "description": "<p>Nationality of the Actor.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n   {\n       \"id\": 1,\n       \"firstname\": \"John\",\n       \"lastname\": \"Doe\",\n       \"birthday\": \"1980-02-10T22:15:34.000Z\",\n       \"gender\": \"Male\",\n       \"nationality\": \"British\",\n       \"createdAt\": \"2020-02-10T22:15:34.000Z\",\n       \"updatedAt\": \"2020-02-10T22:15:34.000Z\"\n   }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./controller/actor.controller.js",
+    "groupTitle": "Actor"
+  },
+  {
+    "type": "post",
     "url": "/genre",
     "title": "Add one Genre",
     "name": "addGenre",
