@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const Sequelize = require("sequelize");
-const User = require("../models/").User;
+const User = require("../models").User;
 
 /**
  * @api {get} /user Show all Users
@@ -105,10 +105,10 @@ exports.user_signup = (req, res, next) => {
   /* Vérifier que l'utilisateur n'existe pas deja en BDD 
       email et username doivent etre uniques
     */
-  let { email, username, address, city, country } = req.body;
+  let { email, username } = req.body;
   User.findAll({
     where: {
-      [Op.or]: [{ email: email }, { username: username }]
+      email: email
     }
   })
     .then(data => {
@@ -241,18 +241,21 @@ exports.user_delete = (req, res, next) => {
 }
  */
 exports.user_signin = (req, res, next) => {
-  const { email, password } = req.body;
-  User.findOne({ where: { email: email } })
+  const { email } = req.body;
+  User.findOne({
+    where: {
+      email: email
+    }
+  })
     .then(user => {
-      if (user === null || user.length === 0) {
-        res.status(200).json({ message: "This user does not exists !" });
+      if (user === null) {
+        res.status(400).json({ message: "This user does not exists !" });
       } else {
-        console.debug(user);
         verifyPassword(user, req, res);
       }
     })
     .catch(error => {
-      res.status(400).json({ message: "error" });
+      res.status(400).json({ message: error });
     });
 };
 

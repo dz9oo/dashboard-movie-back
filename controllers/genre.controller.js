@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const Genre = require("../models/").Genre;
+const Genre = require("../models").Genre;
 
 /**
  * @api {get} /genre Show all Genres

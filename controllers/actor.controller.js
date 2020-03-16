@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const Actor = require("../models/").Actor;
+const Actor = require("../models").Actor;
 
 /**
  * @api {get} /actor Show all Actors
