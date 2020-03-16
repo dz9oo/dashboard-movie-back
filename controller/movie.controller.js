@@ -136,7 +136,7 @@ exports.movie_add = (req, res, next) => {
 };
 
 /**
- * @api {put} /movie:id Edit one Movie
+ * @api {put} /movie/:id Edit one Movie
  * @apiName editMovie
  * @apiGroup Movie
  *

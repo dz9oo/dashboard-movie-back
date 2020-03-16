@@ -7,34 +7,26 @@ const Genre = require("../models/").Genre;
  * @apiName getGenre
  * @apiGroup Genre
  *
- * @apiSuccess {Integer} _id id of the Movie.
- * @apiSuccess {String} title Title of the Movie.
- * @apiSuccess {String} description Description of the Movie.
- * @apiSuccess {Integer} year Release's year of the Movie.
- * @apiSuccess {Float} score Score of the Movie.
- * @apiSuccess {String} picture Picture of the Movie.
+ * @apiSuccess {Integer} _id id of the Genre.
+ * @apiSuccess {String} name Name of the Genre.
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     [
  *        {
  *            "id": 1,
- *            "title": "Dofus-Livre 1 : Julith ",
- *            "description": "A wonderful movie !",
- *            "year": 2019,
- *            "score": 1.2,
- *            "picture": "linkToPicture.jpg",
+ *            "name": "fantastic",
  *            "createdAt": "2020-02-10T22:15:34.000Z",
  *            "updatedAt": "2020-02-10T22:15:34.000Z"
  *        }
  *      ]
  */
-exports.movie_list = (req, res, next) => {
-  Movie.findAll({})
+exports.genre_list = (req, res, next) => {
+  Genre.findAll({})
     .then(data => {
       if (data.length !== 0) {
         res.status(200).json(data);
       } else {
-        res.status(200).json({ message: "Movie's Table is empty !" });
+        res.status(200).json({ message: "Genre's Table is empty !" });
       }
     })
     .catch(error => {
@@ -43,39 +35,31 @@ exports.movie_list = (req, res, next) => {
 };
 
 /**
- * @api {get} /movie/:id Show detail of one Movie
- * @apiName getMovieDetail
- * @apiGroup Movie
+ * @api {get} /genre/:id Show detail of one Genre
+ * @apiName getGenreDetail
+ * @apiGroup Genre
  *
- * @apiParam {Number} id of the Movie
+ * @apiParam {Number} id of the Genre
  *
- * @apiSuccess {Integer} _id id of the Movie.
- * @apiSuccess {String} title Title of the Movie.
- * @apiSuccess {String} description Description of the Movie.
- * @apiSuccess {Integer} year Release's year of the Movie.
- * @apiSuccess {Float} score Score of the Movie.
- * @apiSuccess {String} picture Picture of the Movie.
+ * @apiSuccess {Integer} _id id of the Genre.
+ * @apiSuccess {String} name Name of the Genre.
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *        {
  *            "id": 1,
- *            "title": "Dofus-Livre 1 : Julith ",
- *            "description": "A wonderful movie !",
- *            "year": 2019,
- *            "score": 1.2,
- *            "picture": "linkToPicture.jpg",
+ *            "name": "fantastic",
  *            "createdAt": "2020-02-10T22:15:34.000Z",
  *            "updatedAt": "2020-02-10T22:15:34.000Z"
  *        }
  */
-exports.movie_detail = (req, res, next) => {
+exports.genre_detail = (req, res, next) => {
   const id = req.params.id;
-  Movie.findByPk(id)
+  Genre.findByPk(id)
     .then(data => {
       if (data !== null) {
         res.status(200).json(data);
       } else {
-        res.status(200).json({ message: "This movie's ID does not exists !" });
+        res.status(200).json({ message: "This genre's ID does not exists !" });
       }
     })
     .catch(error => {
@@ -84,49 +68,31 @@ exports.movie_detail = (req, res, next) => {
 };
 
 /**
- * @api {post} /movie Add one Movie
- * @apiName addMovie
- * @apiGroup Movie
+ * @api {post} /genre Add one Genre
+ * @apiName addGenre
+ * @apiGroup Genre
  *
- * @apiParam {String} title Title of the Movie.
- * @apiParam {String} description Description of the Movie.
- * @apiParam {Integer} year Release's year of the Movie.
- * @apiParam {Float} score Score of the Movie.
- * @apiParam {String} picture Picture of the Movie.
+ * @apiParam {String} name Name of the Genre.
  * @apiParamExample {json} Request-Example:
  *     {
- *            "title": "Dofus-Livre 1 : Julith ",
- *            "description": "A wonderful movie !",
- *            "year": 2019,
- *            "score": 1.2,
- *            "picture": "linkToPicture.jpg",
- *            "createdAt": "2020-02-10T22:15:34.000Z",
- *            "updatedAt": "2020-02-10T22:15:34.000Z"
+ *            "name": "fantastic"
  *     }
  *
- * @apiSuccess {Integer} _id id of the Movie.
- * @apiSuccess {String} title Title of the Movie.
- * @apiSuccess {String} description Description of the Movie.
- * @apiSuccess {Integer} year Release's year of the Movie.
- * @apiSuccess {Float} score Score of the Movie.
- * @apiSuccess {String} picture Picture of the Movie.
+ * @apiSuccess {Integer} _id id of the Genre.
+ * @apiSuccess {String} name Name of the Genre.
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     [
  *        {
  *            "id": 1,
- *            "title": "Dofus-Livre 1 : Julith ",
- *            "description": "A wonderful movie !",
- *            "year": 2019,
- *            "score": 1.2,
- *            "picture": "linkToPicture.jpg",
+ *            "name": "fantastic",
  *            "createdAt": "2020-02-10T22:15:34.000Z",
  *            "updatedAt": "2020-02-10T22:15:34.000Z"
  *        }
  *      ]
  */
-exports.movie_add = (req, res, next) => {
-  Movie.create(req.body)
+exports.genre_add = (req, res, next) => {
+  Genre.create(req.body)
     .then(data => {
       res.json(data);
     })
@@ -136,55 +102,37 @@ exports.movie_add = (req, res, next) => {
 };
 
 /**
- * @api {put} /movie:id Edit one Movie
- * @apiName editMovie
- * @apiGroup Movie
+ * @api {put} /genre/:id Edit one Genre
+ * @apiName editGenre
+ * @apiGroup Genre
  *
- * @apiParam {Integer} _id id of the Movie.
- * @apiParam {String} title Title of the Movie.
- * @apiParam {String} description Description of the Movie.
- * @apiParam {Integer} year Release's year of the Movie.
- * @apiParam {Float} score Score of the Movie.
- * @apiParam {String} picture Picture of the Movie.
+ * @apiParam {Integer} _id id of the Genre.
+ * @apiParam {String} name Name of the Genre.
  * @apiParamExample {json} Request-Example:
  *     {
- *            "title": "Dofus-Livre 1 : Julith ",
- *            "description": "A wonderful movie !",
- *            "year": 2019,
- *            "score": 1.2,
- *            "picture": "linkToPicture.jpg",
- *            "createdAt": "2020-02-10T22:15:34.000Z",
- *            "updatedAt": "2020-02-10T22:15:34.000Z"
+ *            "name": "fantastic"
  *     }
  *
- * @apiSuccess {Integer} _id id of the Movie.
- * @apiSuccess {String} title Title of the Movie.
- * @apiSuccess {String} description Description of the Movie.
- * @apiSuccess {Integer} year Release's year of the Movie.
- * @apiSuccess {Float} score Score of the Movie.
- * @apiSuccess {String} picture Picture of the Movie.
+ * @apiSuccess {Integer} _id id of the Genre.
+ * @apiSuccess {String} name Name of the Genre.
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
  *            "id": 1,
- *            "title": "Dofus-Livre 1 : Julith ",
- *            "description": "A wonderful movie !",
- *            "year": 2019,
- *            "score": 1.2,
- *            "picture": "linkToPicture.jpg",
+ *            "name": "fantastic",
  *            "createdAt": "2020-02-10T22:15:34.000Z",
  *            "updatedAt": "2020-02-10T22:15:34.000Z"
  *     }
  */
-exports.movie_edit = (req, res, next) => {
+exports.genre_edit = (req, res, next) => {
   const id = req.params.id;
-  Movie.update(req.body, {
+  Genre.update(req.body, {
     where: {
       id: id
     }
   })
     .then(data => {
-      res.status(200).json({ message: `  Movie ${id} has bean modified` });
+      res.status(200).json({ message: `  Genre ${id} has bean modified` });
     })
     .catch(error => {
       res.status(400).json({ message: "error" });
@@ -192,28 +140,28 @@ exports.movie_edit = (req, res, next) => {
 };
 
 /**
- * @api {delete} /movie/:id Delete one Movie
- * @apiName deleteMovie
- * @apiGroup Movie
+ * @api {delete} /genre/:id Delete one Genre
+ * @apiName deleteGenre
+ * @apiGroup Genre
  *
- * @apiParam {Number} id id of the Movie.
+ * @apiParam {Number} id id of the Genre.
  *
- * @apiSuccess {String} message Movie deleted.
+ * @apiSuccess {String} message Genre deleted.
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
- *       message: "Movie deleted"
+ *       message: "Genre deleted"
  *     }
  */
-exports.movie_delete = (req, res, next) => {
+exports.genre_delete = (req, res, next) => {
   const id = req.params.id;
-  Movie.destroy({
+  Genre.destroy({
     where: {
       id: id
     }
   })
     .then(data => {
-      res.json({ message: "Movie deleted" });
+      res.json({ message: "Genre deleted" });
     })
     .catch(error => {
       res.status(400).json({ message: "error" });
