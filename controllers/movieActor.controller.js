@@ -106,7 +106,6 @@ exports.movieactor_detail = (req, res, next) => {
  *      ]
  */
 exports.movieactor_add = (req, res, next) => {
-  let addOK = false;
   const { movieId, actorId } = req.body;
   // Verifier si movieId & actorId existent en BDD :
   Movie.findByPk(movieId)
@@ -135,24 +134,21 @@ exports.movieactor_add = (req, res, next) => {
     }
   })
     .then(data => {
-      if (data !== null) {
+      if (data.length !== 0) {
         res.status(200).json({ message: "This association already exists !" });
       } else {
-        addOK = true;
+        MovieActor.create(req.body)
+          .then(data => {
+            res.json(data);
+          })
+          .catch(error => {
+            res.status(400).json({ message: "error" });
+          });
       }
     })
     .catch(error => {
       res.status(400).json({ message: "error" });
     });
-  if (addOK) {
-    MovieActor.create(req.body)
-      .then(data => {
-        res.json(data);
-      })
-      .catch(error => {
-        res.status(400).json({ message: "error" });
-      });
-  }
 };
 
 /**

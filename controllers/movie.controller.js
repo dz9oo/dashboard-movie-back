@@ -38,7 +38,7 @@ exports.movie_list = (req, res, next) => {
       }
     })
     .catch(error => {
-      res.status(400).json({ message: "error" });
+      res.status(400).json({ message: error });
     });
 };
 
@@ -131,7 +131,7 @@ exports.movie_add = (req, res, next) => {
       res.json(data);
     })
     .catch(error => {
-      res.status(400).json({ message: "error" });
+      res.status(400).json({ message: error });
     });
 };
 
