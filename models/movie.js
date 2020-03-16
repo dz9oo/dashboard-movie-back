@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Movie.associate = function(models) {
     // associations can be defined here
-    Movie.belongsToMany(models.Actor, { through: "MovieActor" });
+    Movie.belongsToMany(models.Actor, { through: "MovieActors" });
     Movie.belongsTo(models.Genre, {
       onDelete: "CASCADE",
       foreignKey: {

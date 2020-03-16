@@ -671,6 +671,299 @@ define({ "api": [
   },
   {
     "type": "post",
+    "url": "/movieactor",
+    "title": "Add one MovieActor",
+    "name": "addMovieActor",
+    "group": "MovieActor",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "movieId",
+            "description": "<p>movie's ID of the movie.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "actorId",
+            "description": "<p>Actor's ID of the Actor.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n       \"movieId\": 1,\n       \"actorId\": 2,\n       \"createdAt\": \"2020-02-10T22:15:34.000Z\",\n       \"updatedAt\": \"2020-02-10T22:15:34.000Z\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>id of the MovieActor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "movieId",
+            "description": "<p>movie's ID of the movie.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "actorId",
+            "description": "<p>Actor's ID of the Actor.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[\n   {\n       \"id\": 1,\n       \"movieId\": 1,\n       \"actorId\": 2,\n       \"createdAt\": \"2020-02-10T22:15:34.000Z\",\n       \"updatedAt\": \"2020-02-10T22:15:34.000Z\"\n   }\n ]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./controller/movieActor.controller.js",
+    "groupTitle": "MovieActor"
+  },
+  {
+    "type": "delete",
+    "url": "/movieactor/:id",
+    "title": "Delete one MovieActor",
+    "name": "deleteMovieActor",
+    "group": "MovieActor",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id of the Actor.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>MovieActor deleted.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  message: \"MovieActor deleted\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./controller/movieActor.controller.js",
+    "groupTitle": "MovieActor"
+  },
+  {
+    "type": "put",
+    "url": "/movieactor/:id",
+    "title": "Edit one MovieActor",
+    "name": "editMovieActor",
+    "group": "MovieActor",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>id of the MovieActor.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "movieId",
+            "description": "<p>movie's ID of the movie.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "actorId",
+            "description": "<p>Actor's ID of the Actor.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n       \"movieId\": 1,\n       \"actorId\": 2\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>id of the MovieActor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "movieId",
+            "description": "<p>movie's ID of the movie.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "actorId",
+            "description": "<p>Actor's ID of the Actor.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n       \"id\": 1,\n       \"movieId\": 1,\n       \"actorId\": 2,\n       \"createdAt\": \"2020-02-10T22:15:34.000Z\",\n       \"updatedAt\": \"2020-02-10T22:15:34.000Z\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./controller/movieActor.controller.js",
+    "groupTitle": "MovieActor"
+  },
+  {
+    "type": "get",
+    "url": "/movieactor",
+    "title": "Show all MovieActor relations",
+    "name": "getMovieActor",
+    "group": "MovieActor",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>id of the MovieActor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "movieId",
+            "description": "<p>movie's ID of the movie.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "actorId",
+            "description": "<p>Actor's ID of the Actor.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[\n   {\n       \"id\": 1,\n       \"movieId\": 1,\n       \"actorId\": 2,\n       \"createdAt\": \"2020-02-10T22:15:34.000Z\",\n       \"updatedAt\": \"2020-02-10T22:15:34.000Z\"\n   }\n ]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./controller/movieActor.controller.js",
+    "groupTitle": "MovieActor"
+  },
+  {
+    "type": "get",
+    "url": "/movieactor/:id",
+    "title": "Show detail of one MovieActor",
+    "name": "getMovieActorDetail",
+    "group": "MovieActor",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Id of the MovieActor.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>id of the MovieActor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "movieId",
+            "description": "<p>movie's ID of the movie.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "actorId",
+            "description": "<p>Actor's ID of the Actor.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n   {\n       \"id\": 1,\n       \"movieId\": 1,\n       \"actorId\": 2,\n       \"createdAt\": \"2020-02-10T22:15:34.000Z\",\n       \"updatedAt\": \"2020-02-10T22:15:34.000Z\"\n   }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./controller/movieActor.controller.js",
+    "groupTitle": "MovieActor"
+  },
+  {
+    "type": "post",
     "url": "/movie",
     "title": "Add one Movie",
     "name": "addMovie",

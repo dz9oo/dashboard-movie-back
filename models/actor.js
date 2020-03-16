@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Actor.associate = function(models) {
     // associations can be defined here
-    Actor.belongsToMany(models.Movie, { through: "MovieActor" });
+    Actor.belongsToMany(models.Movie, { through: "MovieActors" });
   };
   return Actor;
 };
