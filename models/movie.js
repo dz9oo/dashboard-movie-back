@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     "Movie",
     {
       title: DataTypes.STRING,
-      description: DataTypes.STRING,
+      description: DataTypes.TEXT,
       year: DataTypes.INTEGER,
       picture: DataTypes.STRING,
       score: DataTypes.FLOAT,
