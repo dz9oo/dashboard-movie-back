@@ -84,6 +84,176 @@ exports.actor_detail = (req, res, next) => {
 };
 
 /**
+ * @api {get} /actor/male/mostview Get Top 5 rated actor with gender="male"
+ * @apiName getActorMaleRated
+ * @apiGroup Actor
+ *
+ * @apiParam {Number} id of the Actor
+ *
+ * @apiSuccess {Integer} _id id of the Actor.
+ * @apiSuccess {String} firstname Firstname of the Actor.
+ * @apiSuccess {String} lastname Lastname of the Actor.
+ * @apiSuccess {Date} birthday Birthday of the Actor.
+ * @apiSuccess {String} gender Gender of the Actor.
+ * @apiSuccess {String} nationality Nationality of the Actor.
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *        {
+ *            "id": 1,
+ *            "firstname": "Milla",
+ *            "lastname": "djokovic",
+ *            "birthday": "1980-02-10T22:15:34.000Z",
+ *            "gender": "female",
+ *            "nationality": "American",
+ *            "createdAt": "2020-02-10T22:15:34.000Z",
+ *            "updatedAt": "2020-02-10T22:15:34.000Z"
+ *        }
+ */
+exports.actor_MaleRated = (req, res, next) => {
+  Actor.findAll({
+    where: {
+      gender: "male"
+    },
+    limit: 6
+  })
+    .then(data => {
+      if (data !== null) {
+        //
+        res.status(200).json(data);
+      } else {
+        res.status(200).json({ message: "This actor's ID does not exists !" });
+      }
+    })
+    .catch(error => {
+      res.status(400).json({ message: "error" });
+    });
+};
+
+/**
+ * @api {get} /actor/female/mostview Get Top 5 rated actor with gender="female"
+ * @apiName getActorFemaleRated
+ * @apiGroup Actor
+ *
+ * @apiParam {Number} id of the Actor
+ *
+ * @apiSuccess {Integer} _id id of the Actor.
+ * @apiSuccess {String} firstname Firstname of the Actor.
+ * @apiSuccess {String} lastname Lastname of the Actor.
+ * @apiSuccess {Date} birthday Birthday of the Actor.
+ * @apiSuccess {String} gender Gender of the Actor.
+ * @apiSuccess {String} nationality Nationality of the Actor.
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *        {
+ *            "id": 1,
+ *            "firstname": "Milla",
+ *            "lastname": "djokovic",
+ *            "birthday": "1980-02-10T22:15:34.000Z",
+ *            "gender": "female",
+ *            "nationality": "American",
+ *            "createdAt": "2020-02-10T22:15:34.000Z",
+ *            "updatedAt": "2020-02-10T22:15:34.000Z"
+ *        }
+ */
+exports.actor_femaleRated = (req, res, next) => {
+  Actor.findAll({
+    where: {
+      gender: "female"
+    },
+    limit: 6
+  })
+    .then(data => {
+      if (data !== null) {
+        //
+        res.status(200).json(data);
+      } else {
+        res.status(200).json({ message: "This actor's ID does not exists !" });
+      }
+    })
+    .catch(error => {
+      res.status(400).json({ message: "error" });
+    });
+};
+
+/**
+ * @api {get} /actor/female Get actor with gender="female"
+ * @apiName getActorFemale
+ * @apiGroup Actor
+ *
+ *
+ * @apiSuccess {Integer} _id id of the Actor.
+ * @apiSuccess {String} firstname Firstname of the Actor.
+ * @apiSuccess {String} lastname Lastname of the Actor.
+ * @apiSuccess {Date} birthday Birthday of the Actor.
+ * @apiSuccess {String} gender Gender of the Actor.
+ * @apiSuccess {String} nationality Nationality of the Actor.
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *        {
+ *            "id": 1,
+ *            "firstname": "Milla",
+ *            "lastname": "djokovic",
+ *            "birthday": "1980-02-10T22:15:34.000Z",
+ *            "gender": "female",
+ *            "nationality": "American",
+ *            "createdAt": "2020-02-10T22:15:34.000Z",
+ *            "updatedAt": "2020-02-10T22:15:34.000Z"
+ *        }
+ */
+exports.actor_female = (req, res, next) => {
+  Actor.findAll({
+    where: {
+      gender: "female"
+    }
+  }).then(data => {
+    if (data !== null) {
+      res.status(200).json(data);
+    } else {
+      res.status(200).json({ message: "No female in actor's table !" });
+    }
+  });
+};
+
+/**
+ * @api {get} /actor/male Get actor with gender="male"
+ * @apiName getActorMale
+ * @apiGroup Actor
+ *
+ *
+ * @apiSuccess {Integer} _id id of the Actor.
+ * @apiSuccess {String} firstname Firstname of the Actor.
+ * @apiSuccess {String} lastname Lastname of the Actor.
+ * @apiSuccess {Date} birthday Birthday of the Actor.
+ * @apiSuccess {String} gender Gender of the Actor.
+ * @apiSuccess {String} nationality Nationality of the Actor.
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *        {
+ *            "id": 1,
+ *            "firstname": "Milla",
+ *            "lastname": "djokovic",
+ *            "birthday": "1980-02-10T22:15:34.000Z",
+ *            "gender": "female",
+ *            "nationality": "American",
+ *            "createdAt": "2020-02-10T22:15:34.000Z",
+ *            "updatedAt": "2020-02-10T22:15:34.000Z"
+ *        }
+ */
+exports.actor_male = (req, res, next) => {
+  Actor.findAll({
+    where: {
+      gender: "male"
+    }
+  }).then(data => {
+    if (data !== null) {
+      res.status(200).json(data);
+    } else {
+      res.status(200).json({ message: "No male in actor's table !" });
+    }
+  });
+};
+
+/**
  * @api {post} /actor Add one Actor
  * @apiName addActor
  * @apiGroup Actor
