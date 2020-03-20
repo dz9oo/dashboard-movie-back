@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const MovieActor = require("../models").MovieActor;
 const Movie = require("../models").Movie;
 const Actor = require("../models").Actor;
+const sequelize = require("sequelize");
 
 /**
  * @api {get} /movieactor Show all MovieActor relations
@@ -35,6 +36,57 @@ exports.movieactor_list = (req, res, next) => {
     })
     .catch(error => {
       res.status(400).json({ message: "error" });
+    });
+};
+
+/**
+ * @api {get} /movieactor/count Show MovieActor order by count
+ * @apiName getMovieActor
+ * @apiGroup MovieActor
+ *
+ * @apiSuccess {Integer} _id id of the MovieActor.
+ * @apiSuccess {Integer} movieId movie's ID of the movie.
+ * @apiSuccess {Integer} actorId Actor's ID of the Actor.
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     [
+ *        {
+ *            "id": 1,
+ *            "movieId": 1,
+ *            "actorId": 2,
+ *            "createdAt": "2020-02-10T22:15:34.000Z",
+ *            "updatedAt": "2020-02-10T22:15:34.000Z"
+ *        }
+ *      ]
+ */
+exports.movieactor_count = (req, res, next) => {
+  MovieActor.findAll({
+    // include: [
+    //   {
+    //     model: Actor,
+    //     where: {
+    //       id: MovieActor.actorId,
+    //       gender: "male"
+    //     }
+    //   }
+    // ],
+    attributes: [
+      "actorId",
+      [sequelize.fn("count", sequelize.col("actorId")), "cnt"]
+    ],
+    group: ["MovieActor.actorId"],
+    order: [[sequelize.literal("cnt"), "DESC"]],
+    limit: 10
+  })
+    .then(data => {
+      if (data.length !== 0) {
+        res.status(200).json(data);
+      } else {
+        res.status(200).json({ message: "MovieActor's Table is empty !" });
+      }
+    })
+    .catch(error => {
+      res.status(400).json({ message: error });
     });
 };
 
