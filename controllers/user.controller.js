@@ -4,11 +4,11 @@ const Sequelize = require("sequelize");
 const User = require("../models").User;
 
 /**
- * @api {get} /user Show all Users
+ * @api {get} /users Show all Users
  * @apiName getUser
  * @apiGroup User
  *
- * @apiSuccess {Integer} _id id of the User.
+ * @apiSuccess {Integer} id id of the User.
  * @apiSuccess {String} email Email of the User.
  * @apiSuccess {String} password Password of the User.
  * @apiSuccessExample {json} Success-Response:
@@ -38,13 +38,13 @@ exports.user_list = (req, res, next) => {
 };
 
 /**
- * @api {get} /user/:id Show detail of one User
+ * @api {get} /users/:id Show detail of one User
  * @apiName getUserDetail
  * @apiGroup User
  *
  * @apiParam {Number} id of the User
  *
- * @apiSuccess {Integer} _id id of the User.
+ * @apiSuccess {Integer} id id of the User.
  * @apiSuccess {String} email Email of the User.
  * @apiSuccess {String} password Password of the User.
  * @apiSuccessExample {json} Success-Response:
@@ -73,7 +73,7 @@ exports.user_detail = (req, res, next) => {
 };
 
 /**
- * @api {post} /user/signup Sign UP
+ * @api {post} /users/signup Sign UP
  * @apiName signUpUser
  * @apiGroup User
  *
@@ -85,7 +85,7 @@ exports.user_detail = (req, res, next) => {
  *            "password": "fd92fhhzoodjjje928dnhhee-342jjdk6",
  *     }
  *
- * @apiSuccess {Integer} _id id of the User.
+ * @apiSuccess {Integer} id id of the User.
  * @apiSuccess {String} email Email of the User.
  * @apiSuccess {String} password Password of the User.
  * @apiSuccessExample {json} Success-Response:
@@ -138,11 +138,11 @@ exports.user_signup = (req, res, next) => {
 };
 
 /**
- * @api {put} /user/:id Edit one User
+ * @api {put} /users/:id Edit one User
  * @apiName editUser
  * @apiGroup User
  *
- * @apiParam {Integer} _id id of the User.
+ * @apiParam {Integer} id id of the User.
  * @apiParam {String} email Email of the User.
  * @apiParam {String} password Password of the User.
  * @apiParamExample {json} Request-Example:
@@ -151,7 +151,7 @@ exports.user_signup = (req, res, next) => {
  *            "password": "fd92fhhzoodjjje928dnhhee-342jjdk6",
  *     }
  *
- * @apiSuccess {Integer} _id id of the User.
+ * @apiSuccess {Integer} id id of the User.
  * @apiSuccess {String} email Email of the User.
  * @apiSuccess {String} password Password of the User.
  * @apiSuccessExample {json} Success-Response:
@@ -180,7 +180,7 @@ exports.user_edit = (req, res, next) => {
 };
 
 /**
- * @api {delete} /user/:id Delete one User
+ * @api {delete} /users/:id Delete one User
  * @apiName deleteUser
  * @apiGroup User
  *
@@ -222,7 +222,7 @@ exports.user_delete = (req, res, next) => {
 *     }
  * 
  * @apiSuccess {String} message message
- * @apiSuccess {String} _id id of the User.
+ * @apiSuccess {String} id id of the User.
  * @apiSuccess {String} email Email of the User.
  * @apiSuccess {String} password password of the User.
  * @apiSuccess {String} token token 

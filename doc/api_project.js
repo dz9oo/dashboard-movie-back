@@ -1,15 +1,15 @@
 define({
-  "name": "API movie-daskboard",
-  "version": "0.0.1",
-  "description": "API de gestion du dashboard Movie ",
+  "name": "API movie-dashboard",
+  "version": "1.0.0",
+  "description": "Movie dashboard management API",
   "title": "API Relais-colis",
-  "url": "https://api.github.com/v1",
+  "url": "https://localhost:3000",
   "sampleUrl": false,
   "defaultVersion": "0.0.0",
   "apidoc": "0.3.0",
   "generator": {
     "name": "apidoc",
-    "time": "2020-03-16T11:12:29.745Z",
+    "time": "2020-03-21T12:51:11.320Z",
     "url": "http://apidocjs.com",
     "version": "0.20.0"
   }

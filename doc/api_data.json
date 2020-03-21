@@ -23,13 +23,13 @@
     "url": "",
     "version": "0.0.0",
     "filename": "./doc/main.js",
-    "group": "/Users/nicolascollier/Documents/developpementWeb/teletravail/dashboard-film/doc/main.js",
-    "groupTitle": "/Users/nicolascollier/Documents/developpementWeb/teletravail/dashboard-film/doc/main.js",
+    "group": "/Users/nicolascollier/Documents/developpementWeb/teletravail/dashboard-film-back/doc/main.js",
+    "groupTitle": "/Users/nicolascollier/Documents/developpementWeb/teletravail/dashboard-film-back/doc/main.js",
     "name": ""
   },
   {
     "type": "post",
-    "url": "/actor",
+    "url": "/actors",
     "title": "Add one Actor",
     "name": "addActor",
     "group": "Actor",
@@ -88,7 +88,7 @@
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the Actor.</p>"
           },
           {
@@ -137,12 +137,12 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/actor.controller.js",
+    "filename": "./controllers/actor.controller.js",
     "groupTitle": "Actor"
   },
   {
     "type": "delete",
-    "url": "/actor/:id",
+    "url": "/actors/:id",
     "title": "Delete one Actor",
     "name": "deleteActor",
     "group": "Actor",
@@ -180,12 +180,12 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/actor.controller.js",
+    "filename": "./controllers/actor.controller.js",
     "groupTitle": "Actor"
   },
   {
     "type": "put",
-    "url": "/actor/:id",
+    "url": "/actors/:id",
     "title": "Edit one Actor",
     "name": "editActor",
     "group": "Actor",
@@ -196,7 +196,7 @@
             "group": "Parameter",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the Actor.</p>"
           },
           {
@@ -251,7 +251,7 @@
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the Genre.</p>"
           },
           {
@@ -272,12 +272,12 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/actor.controller.js",
+    "filename": "./controllers/actor.controller.js",
     "groupTitle": "Actor"
   },
   {
     "type": "get",
-    "url": "/actor",
+    "url": "/actors",
     "title": "Show all Actors",
     "name": "getActor",
     "group": "Actor",
@@ -288,7 +288,7 @@
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the Actor.</p>"
           },
           {
@@ -337,12 +337,12 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/actor.controller.js",
+    "filename": "./controllers/actor.controller.js",
     "groupTitle": "Actor"
   },
   {
     "type": "get",
-    "url": "/actor/:id",
+    "url": "/actors/:id",
     "title": "Show detail of one Actor",
     "name": "getActorDetail",
     "group": "Actor",
@@ -366,7 +366,7 @@
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the Actor.</p>"
           },
           {
@@ -415,12 +415,272 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/actor.controller.js",
+    "filename": "./controllers/actor.controller.js",
+    "groupTitle": "Actor"
+  },
+  {
+    "type": "get",
+    "url": "/actors/female",
+    "title": "Get actor with gender=\"female\"",
+    "name": "getActorFemale",
+    "group": "Actor",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "firstname",
+            "description": "<p>Firstname of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "lastname",
+            "description": "<p>Lastname of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "birthday",
+            "description": "<p>Birthday of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>Gender of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "nationality",
+            "description": "<p>Nationality of the Actor.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n   {\n       \"id\": 1,\n       \"firstname\": \"Milla\",\n       \"lastname\": \"djokovic\",\n       \"birthday\": \"1980-02-10T22:15:34.000Z\",\n       \"gender\": \"female\",\n       \"nationality\": \"American\",\n       \"createdAt\": \"2020-02-10T22:15:34.000Z\",\n       \"updatedAt\": \"2020-02-10T22:15:34.000Z\"\n   }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./controllers/actor.controller.js",
+    "groupTitle": "Actor"
+  },
+  {
+    "type": "get",
+    "url": "/actors/female/mostview",
+    "title": "Get Top 5 rated actor with gender=\"female\"",
+    "name": "getActorFemaleRated",
+    "group": "Actor",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "firstname",
+            "description": "<p>Firstname of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "lastname",
+            "description": "<p>Lastname of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "birthday",
+            "description": "<p>Birthday of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>Gender of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "nationality",
+            "description": "<p>Nationality of the Actor.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n   {\n       \"id\": 1,\n       \"firstname\": \"Milla\",\n       \"lastname\": \"djokovic\",\n       \"birthday\": \"1980-02-10T22:15:34.000Z\",\n       \"gender\": \"female\",\n       \"nationality\": \"American\",\n       \"createdAt\": \"2020-02-10T22:15:34.000Z\",\n       \"updatedAt\": \"2020-02-10T22:15:34.000Z\"\n   }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./controllers/actor.controller.js",
+    "groupTitle": "Actor"
+  },
+  {
+    "type": "get",
+    "url": "/actors/male",
+    "title": "Get actor with gender=\"male\"",
+    "name": "getActorMale",
+    "group": "Actor",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "firstname",
+            "description": "<p>Firstname of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "lastname",
+            "description": "<p>Lastname of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "birthday",
+            "description": "<p>Birthday of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>Gender of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "nationality",
+            "description": "<p>Nationality of the Actor.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n   {\n       \"id\": 1,\n       \"firstname\": \"Milla\",\n       \"lastname\": \"djokovic\",\n       \"birthday\": \"1980-02-10T22:15:34.000Z\",\n       \"gender\": \"female\",\n       \"nationality\": \"American\",\n       \"createdAt\": \"2020-02-10T22:15:34.000Z\",\n       \"updatedAt\": \"2020-02-10T22:15:34.000Z\"\n   }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./controllers/actor.controller.js",
+    "groupTitle": "Actor"
+  },
+  {
+    "type": "get",
+    "url": "/actors/male/mostview",
+    "title": "Get Top 5 rated actor with gender=\"male\"",
+    "name": "getActorMaleRated",
+    "group": "Actor",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "firstname",
+            "description": "<p>Firstname of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "lastname",
+            "description": "<p>Lastname of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "birthday",
+            "description": "<p>Birthday of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>Gender of the Actor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "nationality",
+            "description": "<p>Nationality of the Actor.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n   {\n       \"id\": 1,\n       \"firstname\": \"Milla\",\n       \"lastname\": \"djokovic\",\n       \"birthday\": \"1980-02-10T22:15:34.000Z\",\n       \"gender\": \"female\",\n       \"nationality\": \"American\",\n       \"createdAt\": \"2020-02-10T22:15:34.000Z\",\n       \"updatedAt\": \"2020-02-10T22:15:34.000Z\"\n   }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./controllers/actor.controller.js",
     "groupTitle": "Actor"
   },
   {
     "type": "post",
-    "url": "/genre",
+    "url": "/genres",
     "title": "Add one Genre",
     "name": "addGenre",
     "group": "Genre",
@@ -451,7 +711,7 @@
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the Genre.</p>"
           },
           {
@@ -472,12 +732,12 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/genre.controller.js",
+    "filename": "./controllers/genre.controller.js",
     "groupTitle": "Genre"
   },
   {
     "type": "delete",
-    "url": "/genre/:id",
+    "url": "/genres/:id",
     "title": "Delete one Genre",
     "name": "deleteGenre",
     "group": "Genre",
@@ -515,12 +775,12 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/genre.controller.js",
+    "filename": "./controllers/genre.controller.js",
     "groupTitle": "Genre"
   },
   {
     "type": "put",
-    "url": "/genre/:id",
+    "url": "/genres/:id",
     "title": "Edit one Genre",
     "name": "editGenre",
     "group": "Genre",
@@ -531,7 +791,7 @@
             "group": "Parameter",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the Genre.</p>"
           },
           {
@@ -558,7 +818,7 @@
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the Genre.</p>"
           },
           {
@@ -579,12 +839,12 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/genre.controller.js",
+    "filename": "./controllers/genre.controller.js",
     "groupTitle": "Genre"
   },
   {
     "type": "get",
-    "url": "/genre",
+    "url": "/genres",
     "title": "Show all Genres",
     "name": "getGenre",
     "group": "Genre",
@@ -595,7 +855,7 @@
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the Genre.</p>"
           },
           {
@@ -616,12 +876,12 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/genre.controller.js",
+    "filename": "./controllers/genre.controller.js",
     "groupTitle": "Genre"
   },
   {
     "type": "get",
-    "url": "/genre/:id",
+    "url": "/genres/:id",
     "title": "Show detail of one Genre",
     "name": "getGenreDetail",
     "group": "Genre",
@@ -645,7 +905,7 @@
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the Genre.</p>"
           },
           {
@@ -666,7 +926,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/genre.controller.js",
+    "filename": "./controllers/genre.controller.js",
     "groupTitle": "Genre"
   },
   {
@@ -709,7 +969,7 @@
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the MovieActor.</p>"
           },
           {
@@ -737,7 +997,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/movieActor.controller.js",
+    "filename": "./controllers/movieActor.controller.js",
     "groupTitle": "MovieActor"
   },
   {
@@ -780,7 +1040,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/movieActor.controller.js",
+    "filename": "./controllers/movieActor.controller.js",
     "groupTitle": "MovieActor"
   },
   {
@@ -796,7 +1056,7 @@
             "group": "Parameter",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the MovieActor.</p>"
           },
           {
@@ -830,7 +1090,7 @@
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the MovieActor.</p>"
           },
           {
@@ -858,7 +1118,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/movieActor.controller.js",
+    "filename": "./controllers/movieActor.controller.js",
     "groupTitle": "MovieActor"
   },
   {
@@ -874,7 +1134,7 @@
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the MovieActor.</p>"
           },
           {
@@ -902,7 +1162,51 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/movieActor.controller.js",
+    "filename": "./controllers/movieActor.controller.js",
+    "groupTitle": "MovieActor"
+  },
+  {
+    "type": "get",
+    "url": "/movieactor/count",
+    "title": "Show MovieActor order by count",
+    "name": "getMovieActor",
+    "group": "MovieActor",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id of the MovieActor.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "movieId",
+            "description": "<p>movie's ID of the movie.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "actorId",
+            "description": "<p>Actor's ID of the Actor.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[\n   {\n       \"id\": 1,\n       \"movieId\": 1,\n       \"actorId\": 2,\n       \"createdAt\": \"2020-02-10T22:15:34.000Z\",\n       \"updatedAt\": \"2020-02-10T22:15:34.000Z\"\n   }\n ]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./controllers/movieActor.controller.js",
     "groupTitle": "MovieActor"
   },
   {
@@ -931,7 +1235,7 @@
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the MovieActor.</p>"
           },
           {
@@ -959,12 +1263,12 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/movieActor.controller.js",
+    "filename": "./controllers/movieActor.controller.js",
     "groupTitle": "MovieActor"
   },
   {
     "type": "post",
-    "url": "/movie",
+    "url": "/movies",
     "title": "Add one Movie",
     "name": "addMovie",
     "group": "Movie",
@@ -1023,7 +1327,7 @@
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the Movie.</p>"
           },
           {
@@ -1072,12 +1376,12 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/movie.controller.js",
+    "filename": "./controllers/movie.controller.js",
     "groupTitle": "Movie"
   },
   {
     "type": "delete",
-    "url": "/movie/:id",
+    "url": "/movies/:id",
     "title": "Delete one Movie",
     "name": "deleteMovie",
     "group": "Movie",
@@ -1115,12 +1419,12 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/movie.controller.js",
+    "filename": "./controllers/movie.controller.js",
     "groupTitle": "Movie"
   },
   {
     "type": "put",
-    "url": "/movie/:id",
+    "url": "/movies/:id",
     "title": "Edit one Movie",
     "name": "editMovie",
     "group": "Movie",
@@ -1131,7 +1435,7 @@
             "group": "Parameter",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the Movie.</p>"
           },
           {
@@ -1186,7 +1490,7 @@
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the Movie.</p>"
           },
           {
@@ -1235,12 +1539,12 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/movie.controller.js",
+    "filename": "./controllers/movie.controller.js",
     "groupTitle": "Movie"
   },
   {
     "type": "get",
-    "url": "/movie",
+    "url": "/movies",
     "title": "Show all Movies",
     "name": "getMovie",
     "group": "Movie",
@@ -1251,7 +1555,7 @@
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the Movie.</p>"
           },
           {
@@ -1300,12 +1604,12 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/movie.controller.js",
+    "filename": "./controllers/movie.controller.js",
     "groupTitle": "Movie"
   },
   {
     "type": "get",
-    "url": "/movie/:id",
+    "url": "/movies/:id",
     "title": "Show detail of one Movie",
     "name": "getMovieDetail",
     "group": "Movie",
@@ -1329,7 +1633,7 @@
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the Movie.</p>"
           },
           {
@@ -1378,7 +1682,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/movie.controller.js",
+    "filename": "./controllers/movie.controller.js",
     "groupTitle": "Movie"
   },
   {
@@ -1428,7 +1732,7 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the User.</p>"
           },
           {
@@ -1463,12 +1767,12 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/user.controller.js",
+    "filename": "./controllers/user.controller.js",
     "groupTitle": "User"
   },
   {
     "type": "delete",
-    "url": "/user/:id",
+    "url": "/users/:id",
     "title": "Delete one User",
     "name": "deleteUser",
     "group": "User",
@@ -1506,12 +1810,12 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/user.controller.js",
+    "filename": "./controllers/user.controller.js",
     "groupTitle": "User"
   },
   {
     "type": "put",
-    "url": "/user/:id",
+    "url": "/users/:id",
     "title": "Edit one User",
     "name": "editUser",
     "group": "User",
@@ -1522,7 +1826,7 @@
             "group": "Parameter",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the User.</p>"
           },
           {
@@ -1556,7 +1860,7 @@
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the User.</p>"
           },
           {
@@ -1584,12 +1888,12 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/user.controller.js",
+    "filename": "./controllers/user.controller.js",
     "groupTitle": "User"
   },
   {
     "type": "get",
-    "url": "/user",
+    "url": "/users",
     "title": "Show all Users",
     "name": "getUser",
     "group": "User",
@@ -1600,7 +1904,7 @@
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the User.</p>"
           },
           {
@@ -1628,12 +1932,12 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/user.controller.js",
+    "filename": "./controllers/user.controller.js",
     "groupTitle": "User"
   },
   {
     "type": "get",
-    "url": "/user/:id",
+    "url": "/users/:id",
     "title": "Show detail of one User",
     "name": "getUserDetail",
     "group": "User",
@@ -1657,7 +1961,7 @@
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the User.</p>"
           },
           {
@@ -1685,12 +1989,12 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/user.controller.js",
+    "filename": "./controllers/user.controller.js",
     "groupTitle": "User"
   },
   {
     "type": "post",
-    "url": "/user/signup",
+    "url": "/users/signup",
     "title": "Sign UP",
     "name": "signUpUser",
     "group": "User",
@@ -1728,7 +2032,7 @@
             "group": "Success 200",
             "type": "Integer",
             "optional": false,
-            "field": "_id",
+            "field": "id",
             "description": "<p>id of the User.</p>"
           },
           {
@@ -1756,7 +2060,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "./controller/user.controller.js",
+    "filename": "./controllers/user.controller.js",
     "groupTitle": "User"
   }
 ]

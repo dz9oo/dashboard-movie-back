@@ -1,7 +1,7 @@
 {
-  "name": "API movie-daskboard",
-  "version": "0.0.1",
-  "description": "API de gestion du dashboard Movie ",
+  "name": "API movie-dashboard",
+  "version": "1.0.0",
+  "description": "Movie dashboard management API",
   "title": "API Relais-colis",
-  "url": "https://api.github.com/v1"
+  "url": "https://localhost:3000"
 }

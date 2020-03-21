@@ -10,7 +10,7 @@ const sequelize = require("sequelize");
  * @apiName getMovieActor
  * @apiGroup MovieActor
  *
- * @apiSuccess {Integer} _id id of the MovieActor.
+ * @apiSuccess {Integer} id id of the MovieActor.
  * @apiSuccess {Integer} movieId movie's ID of the movie.
  * @apiSuccess {Integer} actorId Actor's ID of the Actor.
  * @apiSuccessExample {json} Success-Response:
@@ -44,7 +44,7 @@ exports.movieactor_list = (req, res, next) => {
  * @apiName getMovieActor
  * @apiGroup MovieActor
  *
- * @apiSuccess {Integer} _id id of the MovieActor.
+ * @apiSuccess {Integer} id id of the MovieActor.
  * @apiSuccess {Integer} movieId movie's ID of the movie.
  * @apiSuccess {Integer} actorId Actor's ID of the Actor.
  * @apiSuccessExample {json} Success-Response:
@@ -97,7 +97,7 @@ exports.movieactor_count = (req, res, next) => {
  *
  * @apiParam {Number} id Id of the MovieActor.
  *
- * @apiSuccess {Integer} _id id of the MovieActor.
+ * @apiSuccess {Integer} id id of the MovieActor.
  * @apiSuccess {Integer} movieId movie's ID of the movie.
  * @apiSuccess {Integer} actorId Actor's ID of the Actor.
  * @apiSuccessExample {json} Success-Response:
@@ -142,7 +142,7 @@ exports.movieactor_detail = (req, res, next) => {
  *            "updatedAt": "2020-02-10T22:15:34.000Z"
  *     }
  *
- * @apiSuccess {Integer} _id id of the MovieActor.
+ * @apiSuccess {Integer} id id of the MovieActor.
  * @apiSuccess {Integer} movieId movie's ID of the movie.
  * @apiSuccess {Integer} actorId Actor's ID of the Actor.
  * @apiSuccessExample {json} Success-Response:
@@ -208,7 +208,7 @@ exports.movieactor_add = (req, res, next) => {
  * @apiName editMovieActor
  * @apiGroup MovieActor
  *
- * @apiParam {Integer} _id id of the MovieActor.
+ * @apiParam {Integer} id id of the MovieActor.
  * @apiParam {Integer} movieId movie's ID of the movie.
  * @apiParam {Integer} actorId Actor's ID of the Actor.
  * @apiParamExample {json} Request-Example:
@@ -217,7 +217,7 @@ exports.movieactor_add = (req, res, next) => {
  *            "actorId": 2
  *     }
  *
- * @apiSuccess {Integer} _id id of the MovieActor.
+ * @apiSuccess {Integer} id id of the MovieActor.
  * @apiSuccess {Integer} movieId movie's ID of the movie.
  * @apiSuccess {Integer} actorId Actor's ID of the Actor.
  * @apiSuccessExample {json} Success-Response:

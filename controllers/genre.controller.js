@@ -3,11 +3,11 @@ const jwt = require("jsonwebtoken");
 const Genre = require("../models").Genre;
 
 /**
- * @api {get} /genre Show all Genres
+ * @api {get} /genres Show all Genres
  * @apiName getGenre
  * @apiGroup Genre
  *
- * @apiSuccess {Integer} _id id of the Genre.
+ * @apiSuccess {Integer} id id of the Genre.
  * @apiSuccess {String} name Name of the Genre.
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
@@ -35,13 +35,13 @@ exports.genre_list = (req, res, next) => {
 };
 
 /**
- * @api {get} /genre/:id Show detail of one Genre
+ * @api {get} /genres/:id Show detail of one Genre
  * @apiName getGenreDetail
  * @apiGroup Genre
  *
  * @apiParam {Number} id of the Genre
  *
- * @apiSuccess {Integer} _id id of the Genre.
+ * @apiSuccess {Integer} id id of the Genre.
  * @apiSuccess {String} name Name of the Genre.
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
@@ -68,7 +68,7 @@ exports.genre_detail = (req, res, next) => {
 };
 
 /**
- * @api {post} /genre Add one Genre
+ * @api {post} /genres Add one Genre
  * @apiName addGenre
  * @apiGroup Genre
  *
@@ -78,7 +78,7 @@ exports.genre_detail = (req, res, next) => {
  *            "name": "fantastic"
  *     }
  *
- * @apiSuccess {Integer} _id id of the Genre.
+ * @apiSuccess {Integer} id id of the Genre.
  * @apiSuccess {String} name Name of the Genre.
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
@@ -102,18 +102,18 @@ exports.genre_add = (req, res, next) => {
 };
 
 /**
- * @api {put} /genre/:id Edit one Genre
+ * @api {put} /genres/:id Edit one Genre
  * @apiName editGenre
  * @apiGroup Genre
  *
- * @apiParam {Integer} _id id of the Genre.
+ * @apiParam {Integer} id id of the Genre.
  * @apiParam {String} name Name of the Genre.
  * @apiParamExample {json} Request-Example:
  *     {
  *            "name": "fantastic"
  *     }
  *
- * @apiSuccess {Integer} _id id of the Genre.
+ * @apiSuccess {Integer} id id of the Genre.
  * @apiSuccess {String} name Name of the Genre.
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
@@ -140,7 +140,7 @@ exports.genre_edit = (req, res, next) => {
 };
 
 /**
- * @api {delete} /genre/:id Delete one Genre
+ * @api {delete} /genres/:id Delete one Genre
  * @apiName deleteGenre
  * @apiGroup Genre
  *

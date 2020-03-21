@@ -3,11 +3,11 @@ const jwt = require("jsonwebtoken");
 const Movie = require("../models").Movie;
 
 /**
- * @api {get} /movie Show all Movies
+ * @api {get} /movies Show all Movies
  * @apiName getMovie
  * @apiGroup Movie
  *
- * @apiSuccess {Integer} _id id of the Movie.
+ * @apiSuccess {Integer} id id of the Movie.
  * @apiSuccess {String} title Title of the Movie.
  * @apiSuccess {String} description Description of the Movie.
  * @apiSuccess {Integer} year Release's year of the Movie.
@@ -43,13 +43,13 @@ exports.movie_list = (req, res, next) => {
 };
 
 /**
- * @api {get} /movie/:id Show detail of one Movie
+ * @api {get} /movies/:id Show detail of one Movie
  * @apiName getMovieDetail
  * @apiGroup Movie
  *
  * @apiParam {Number} id of the Movie
  *
- * @apiSuccess {Integer} _id id of the Movie.
+ * @apiSuccess {Integer} id id of the Movie.
  * @apiSuccess {String} title Title of the Movie.
  * @apiSuccess {String} description Description of the Movie.
  * @apiSuccess {Integer} year Release's year of the Movie.
@@ -84,7 +84,7 @@ exports.movie_detail = (req, res, next) => {
 };
 
 /**
- * @api {post} /movie Add one Movie
+ * @api {post} /movies Add one Movie
  * @apiName addMovie
  * @apiGroup Movie
  *
@@ -104,7 +104,7 @@ exports.movie_detail = (req, res, next) => {
  *            "updatedAt": "2020-02-10T22:15:34.000Z"
  *     }
  *
- * @apiSuccess {Integer} _id id of the Movie.
+ * @apiSuccess {Integer} id id of the Movie.
  * @apiSuccess {String} title Title of the Movie.
  * @apiSuccess {String} description Description of the Movie.
  * @apiSuccess {Integer} year Release's year of the Movie.
@@ -136,11 +136,11 @@ exports.movie_add = (req, res, next) => {
 };
 
 /**
- * @api {put} /movie/:id Edit one Movie
+ * @api {put} /movies/:id Edit one Movie
  * @apiName editMovie
  * @apiGroup Movie
  *
- * @apiParam {Integer} _id id of the Movie.
+ * @apiParam {Integer} id id of the Movie.
  * @apiParam {String} title Title of the Movie.
  * @apiParam {String} description Description of the Movie.
  * @apiParam {Integer} year Release's year of the Movie.
@@ -157,7 +157,7 @@ exports.movie_add = (req, res, next) => {
  *            "updatedAt": "2020-02-10T22:15:34.000Z"
  *     }
  *
- * @apiSuccess {Integer} _id id of the Movie.
+ * @apiSuccess {Integer} id id of the Movie.
  * @apiSuccess {String} title Title of the Movie.
  * @apiSuccess {String} description Description of the Movie.
  * @apiSuccess {Integer} year Release's year of the Movie.
@@ -192,7 +192,7 @@ exports.movie_edit = (req, res, next) => {
 };
 
 /**
- * @api {delete} /movie/:id Delete one Movie
+ * @api {delete} /movies/:id Delete one Movie
  * @apiName deleteMovie
  * @apiGroup Movie
  *

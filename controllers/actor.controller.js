@@ -3,11 +3,11 @@ const jwt = require("jsonwebtoken");
 const Actor = require("../models").Actor;
 
 /**
- * @api {get} /actor Show all Actors
+ * @api {get} /actors Show all Actors
  * @apiName getActor
  * @apiGroup Actor
  *
- * @apiSuccess {Integer} _id id of the Actor.
+ * @apiSuccess {Integer} id id of the Actor.
  * @apiSuccess {String} firstname Firstname of the Actor.
  * @apiSuccess {String} lastname Lastname of the Actor.
  * @apiSuccess {Date} birthday Birthday of the Actor.
@@ -43,13 +43,13 @@ exports.actor_list = (req, res, next) => {
 };
 
 /**
- * @api {get} /actor/:id Show detail of one Actor
+ * @api {get} /actors/:id Show detail of one Actor
  * @apiName getActorDetail
  * @apiGroup Actor
  *
  * @apiParam {Number} id of the Actor
  *
- * @apiSuccess {Integer} _id id of the Actor.
+ * @apiSuccess {Integer} id id of the Actor.
  * @apiSuccess {String} firstname Firstname of the Actor.
  * @apiSuccess {String} lastname Lastname of the Actor.
  * @apiSuccess {Date} birthday Birthday of the Actor.
@@ -84,13 +84,11 @@ exports.actor_detail = (req, res, next) => {
 };
 
 /**
- * @api {get} /actor/male/mostview Get Top 5 rated actor with gender="male"
+ * @api {get} /actors/male/mostview Get Top 5 rated actor with gender="male"
  * @apiName getActorMaleRated
  * @apiGroup Actor
  *
- * @apiParam {Number} id of the Actor
- *
- * @apiSuccess {Integer} _id id of the Actor.
+ * @apiSuccess {Integer} id id of the Actor.
  * @apiSuccess {String} firstname Firstname of the Actor.
  * @apiSuccess {String} lastname Lastname of the Actor.
  * @apiSuccess {Date} birthday Birthday of the Actor.
@@ -130,13 +128,12 @@ exports.actor_MaleRated = (req, res, next) => {
 };
 
 /**
- * @api {get} /actor/female/mostview Get Top 5 rated actor with gender="female"
+ * @api {get} /actors/female/mostview Get Top 5 rated actor with gender="female"
  * @apiName getActorFemaleRated
  * @apiGroup Actor
  *
- * @apiParam {Number} id of the Actor
  *
- * @apiSuccess {Integer} _id id of the Actor.
+ * @apiSuccess {Integer} id id of the Actor.
  * @apiSuccess {String} firstname Firstname of the Actor.
  * @apiSuccess {String} lastname Lastname of the Actor.
  * @apiSuccess {Date} birthday Birthday of the Actor.
@@ -176,12 +173,12 @@ exports.actor_femaleRated = (req, res, next) => {
 };
 
 /**
- * @api {get} /actor/female Get actor with gender="female"
+ * @api {get} /actors/female Get actor with gender="female"
  * @apiName getActorFemale
  * @apiGroup Actor
  *
  *
- * @apiSuccess {Integer} _id id of the Actor.
+ * @apiSuccess {Integer} id id of the Actor.
  * @apiSuccess {String} firstname Firstname of the Actor.
  * @apiSuccess {String} lastname Lastname of the Actor.
  * @apiSuccess {Date} birthday Birthday of the Actor.
@@ -215,12 +212,12 @@ exports.actor_female = (req, res, next) => {
 };
 
 /**
- * @api {get} /actor/male Get actor with gender="male"
+ * @api {get} /actors/male Get actor with gender="male"
  * @apiName getActorMale
  * @apiGroup Actor
  *
  *
- * @apiSuccess {Integer} _id id of the Actor.
+ * @apiSuccess {Integer} id id of the Actor.
  * @apiSuccess {String} firstname Firstname of the Actor.
  * @apiSuccess {String} lastname Lastname of the Actor.
  * @apiSuccess {Date} birthday Birthday of the Actor.
@@ -254,7 +251,7 @@ exports.actor_male = (req, res, next) => {
 };
 
 /**
- * @api {post} /actor Add one Actor
+ * @api {post} /actors Add one Actor
  * @apiName addActor
  * @apiGroup Actor
  *
@@ -272,7 +269,7 @@ exports.actor_male = (req, res, next) => {
  *            "nationality": "British"
  *     }
  *
- * @apiSuccess {Integer} _id id of the Actor.
+ * @apiSuccess {Integer} id id of the Actor.
  * @apiSuccess {String} firstname Firstname of the Actor.
  * @apiSuccess {String} lastname Lastname of the Actor.
  * @apiSuccess {Date} birthday Birthday of the Actor.
@@ -304,11 +301,11 @@ exports.actor_add = (req, res, next) => {
 };
 
 /**
- * @api {put} /actor/:id Edit one Actor
+ * @api {put} /actors/:id Edit one Actor
  * @apiName editActor
  * @apiGroup Actor
  *
- * @apiParam {Integer} _id id of the Actor.
+ * @apiParam {Integer} id id of the Actor.
  * @apiParam {String} firstname Firstname of the Actor.
  * @apiParam {String} lastname Lastname of the Actor.
  * @apiParam {Date} birthday Birthday of the Actor.
@@ -323,7 +320,7 @@ exports.actor_add = (req, res, next) => {
  *            "nationality": "British"
  *     }
  *
- * @apiSuccess {Integer} _id id of the Genre.
+ * @apiSuccess {Integer} id id of the Genre.
  * @apiSuccess {String} name Name of the Genre.
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
@@ -354,7 +351,7 @@ exports.actor_edit = (req, res, next) => {
 };
 
 /**
- * @api {delete} /actor/:id Delete one Actor
+ * @api {delete} /actors/:id Delete one Actor
  * @apiName deleteActor
  * @apiGroup Actor
  *
