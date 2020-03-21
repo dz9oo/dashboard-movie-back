@@ -57,7 +57,7 @@ npm run migrate
 
 ### import test database
 
-You can import the test database _dashboard_development.sql_ to test this API.
+You can import the test database [dashboard_development.sql](https://github.com/dz9oo/dashboard-movie-back/blob/master/dashboard_development.sql) to test this API.
 
 ### Run server
 
